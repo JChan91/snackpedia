@@ -12,11 +12,13 @@ import "../css/App.css";
 import "../css/SideBar.css";
 import "../css/NavBar.css";
 
+import SnackRegister from "./SnackRegister";
 import logo from "../images/snack.png";
 import colorLogo from "../images/color_snack.png";
 
 function App() {
   const [mockData, setMockData] = useState([]);
+  const [search, setSearch] = useState("");
 
   // TODO 과자 등록이 구현되면 없애기
   useEffect(() => {
@@ -24,6 +26,17 @@ function App() {
       setMockData(res.data.data);
     });
   }, []); // 마운트만 할 경우 [] 추가
+
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+
+    // 검색어 초기화
+    setSearch("");
+  };
 
   return (
     <div className="App">
@@ -57,10 +70,16 @@ function App() {
             <input
               type="text"
               name="search"
-              // value="gg"
+              value={search}
+              onChange={onChange}
               className="search-input"
             />
-            <input type="submit" value="🍫" className="search-btn" />
+            <input
+              type="submit"
+              value="🍫"
+              className="search-btn"
+              onClick={onClick}
+            />
           </div>
         </div>
       </div>
@@ -90,6 +109,11 @@ function App() {
             <li>
               <Link to="/snack/chocolate" className="sidebar-link">
                 초콜릿 / 캔디
+              </Link>
+            </li>
+            <li>
+              <Link to="/SnackRegister" className="sidebar-link">
+                과자 등록
               </Link>
             </li>
           </ul>
@@ -122,7 +146,7 @@ function App() {
               return <SnackList snacks={mockData} />;
             }}
           />
-
+          <Route path="/SnackRegister" component={SnackRegister} />
           <Route path="/snack/detail/:id" component={SnackDetail} />
 
           <Route exact="exact" path="/signin" component={SignIn} />
