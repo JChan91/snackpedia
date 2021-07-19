@@ -7,7 +7,7 @@ function SnackList({ snacks }) {
   });
 
   const breakpointColumnsObj = {
-    default: 5,
+    default: 4,
     1660: 5,
     1310: 4,
     1025: 3,

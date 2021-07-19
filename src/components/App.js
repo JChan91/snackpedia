@@ -5,9 +5,13 @@ import axios from "axios";
 import SnackList from "./SnackList";
 import SnackDetail from "./SnackDetail";
 
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+
 import "../css/App.css";
 import "../css/SideBar.css";
 import "../css/NavBar.css";
+
 import logo from "../images/snack.png";
 import colorLogo from "../images/color_snack.png";
 
@@ -105,7 +109,7 @@ function App() {
 
         <Switch>
           <Route
-            exact
+            exact="exact"
             path="/"
             render={() => {
               return <SnackList snacks={mockData} />;
@@ -120,6 +124,9 @@ function App() {
           />
 
           <Route path="/snack/detail/:id" component={SnackDetail} />
+
+          <Route exact="exact" path="/signin" component={SignIn} />
+          <Route exact="exact" path="/signup" component={SignUp} />
         </Switch>
       </div>
     </div>
