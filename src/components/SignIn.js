@@ -27,7 +27,7 @@ function SignIn() {
       <div>
         <h1 className="signin-text">
           {/* <img src={snackMerge} className="snackMerge-img" /> */}
-          Login
+          Login 에엥
         </h1>
         <form onSubmit={onSubmitdHandler} className="signin-form">
           <label className="signin-label">E-mail</label>
