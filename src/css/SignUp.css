@@ -1,39 +1,41 @@
 .SignUpForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1200px;
-    height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  height: 70vh;
 }
 
-
-
-form {
-    display: flex;
-    flex-direction: column;
+.signup-form {
+  display: flex;
+  flex-direction: column;
 }
 
-label {
-    font-size: 25px;
-    font-family: "Bangers", cursive;
+.signup-text {
+  text-decoration: underline;
 }
 
-input {
-    border-color: rgb(243, 70, 70);
-    border-style: solid;
-    font-size: 15px;
-    padding-left: 5%;
+.signup-label {
+  font-size: 25px;
+  font-family: "Bangers", cursive;
 }
 
-button {
-    background-color: rgb(243, 70, 70);
-    width: 200px;
-    border: none;
-    border-radius: 5px;
-    box-Shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    font-size: 25px;
-    margin: 4px 2px;
-    color: white;
-    font-Family: "Bangers";
-    cursor: pointer;
+.signup-input {
+  border-color: rgb(243, 70, 70);
+  border-style: solid;
+  font-size: 15px;
+  padding-left: 5%;
+}
+
+.signup-button {
+  background-color: rgb(243, 70, 70);
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 25px;
+  margin: 4px 2px;
+  color: white;
+  font-family: "Bangers";
+  cursor: pointer;
 }
