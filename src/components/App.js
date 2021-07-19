@@ -8,6 +8,7 @@ import SnackDetail from "./SnackDetail";
 import "../css/App.css";
 import "../css/SideBar.css";
 import "../css/NavBar.css";
+import SnackRegister from "./SnackRegister";
 import logo from "../images/snack.png";
 import colorLogo from "../images/color_snack.png";
 
@@ -88,6 +89,11 @@ function App() {
                 초콜릿 / 캔디
               </Link>
             </li>
+            <li>
+              <Link to="/SnackRegister" className="sidebar-link">
+                과자 등록
+              </Link>
+            </li>
           </ul>
 
           <h1>
@@ -118,7 +124,7 @@ function App() {
               return <SnackList snacks={mockData} />;
             }}
           />
-
+          <Route path="/SnackRegister" component={SnackRegister} />
           <Route path="/snack/detail/:id" component={SnackDetail} />
         </Switch>
       </div>
