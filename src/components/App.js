@@ -14,6 +14,7 @@ import colorLogo from "../images/color_snack.png";
 
 function App() {
   const [mockData, setMockData] = useState([]);
+  const [search, setSearch] = useState("");
 
   // TODO 과자 등록이 구현되면 없애기
   useEffect(() => {
@@ -21,6 +22,17 @@ function App() {
       setMockData(res.data.data);
     });
   }, []); // 마운트만 할 경우 [] 추가
+
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+
+    // 검색어 초기화
+    setSearch("");
+  };
 
   return (
     <div className="App">
@@ -54,10 +66,16 @@ function App() {
             <input
               type="text"
               name="search"
-              // value="gg"
+              value={search}
+              onChange={onChange}
               className="search-input"
             />
-            <input type="submit" value="🍫" className="search-btn" />
+            <input
+              type="submit"
+              value="🍫"
+              className="search-btn"
+              onClick={onClick}
+            />
           </div>
         </div>
       </div>
