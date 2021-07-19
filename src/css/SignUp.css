@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1200px;
+  width: 900px;
   height: 70vh;
+  margin: 0 auto;
 }
 
 .signup-form {
@@ -23,11 +24,11 @@
 .signup-input {
   border-color: rgb(243, 70, 70);
   border-style: solid;
-  font-size: 15px;
+  font-size: 18px;
   padding-left: 5%;
 }
 
-.signup-button {
+.signupBtn {
   background-color: rgb(243, 70, 70);
   width: 100%;
   border: none;

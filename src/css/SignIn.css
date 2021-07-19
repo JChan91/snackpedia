@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1200px;
+  width: 900px;
   height: 70vh;
 }
 
@@ -28,7 +28,7 @@
 .signin-input {
   border-color: rgb(243, 70, 70);
   border-style: solid;
-  font-size: 15px;
+  font-size: 18px;
   padding-left: 5%;
 }
 

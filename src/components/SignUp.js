@@ -1,39 +1,56 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/SignUp.css";
 
 function SignUp() {
-  const [Email, setEmail] = useState("");
-  const [Name, setName] = useState("");
-  const [Password, setPassword] = useState("");
-  const [ConfirmPassword, setConfirmPassword] = useState("");
+  const [userEmail, setuserEmail] = useState("");
+  const [userName, setuserName] = useState("");
+  const [userPassword, setuserPassword] = useState("");
+  const [userConfirmPassword, setuserConfirmPassword] = useState("");
 
   const onEmailHandler = (event) => {
-    setEmail(event.currentTarget.value);
+    setuserEmail(event.currentTarget.value);
   };
 
   const onNameHandler = (event) => {
-    setName(event.currentTarget.value);
+    setuserName(event.currentTarget.value);
   };
 
   const onPasswordHandler = (event) => {
-    setPassword(event.currentTarget.value);
+    setuserPassword(event.currentTarget.value);
   };
 
   const onConfirmPasswordHandler = (event) => {
-    setConfirmPassword(event.currentTarget.value);
+    setuserConfirmPassword(event.currentTarget.value);
   };
 
   const onSubmitdHandler = (event) => {
     event.preventDefault();
 
-    if (Password !== ConfirmPassword) {
+    if (userPassword !== userConfirmPassword) {
       return alert("비밀번호와 비밀번호 확인은 같아야 합니다.");
     }
 
-    console.log("Email", Email);
-    console.log("Password", Password);
+    console.log("userEmail", userEmail);
+    console.log("userPassword", userPassword);
   };
+
+  axios({
+    method: "POST",
+    url: "http://localhost:8080/signup",
+    data: {
+      userEmail: userEmail.value,
+      userPassword: userPassword.value,
+      userConfirmPassword: userConfirmPassword.value,
+      userName: userName.value,
+    },
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
   return (
     <div className="SignUpForm">
@@ -43,7 +60,7 @@ function SignUp() {
         <input
           className="signup-input"
           type="email"
-          value={Email}
+          value={userEmail}
           onChange={onEmailHandler}
         />
 
@@ -51,7 +68,7 @@ function SignUp() {
         <input
           className="signup-input"
           type="text"
-          value={Name}
+          value={userName}
           onChange={onNameHandler}
         />
 
@@ -59,7 +76,7 @@ function SignUp() {
         <input
           className="signup-input"
           type="password"
-          value={Password}
+          value={userPassword}
           onChange={onPasswordHandler}
         />
 
@@ -67,12 +84,12 @@ function SignUp() {
         <input
           className="signup-input"
           type="password"
-          value={ConfirmPassword}
+          value={userConfirmPassword}
           onChange={onConfirmPasswordHandler}
         />
 
         <br />
-        <button className="signup-button" type="submit">
+        <button className="signupBtn hover1" type="submit">
           Join us!
         </button>
       </form>
